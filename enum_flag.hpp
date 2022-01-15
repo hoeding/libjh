@@ -1,3 +1,5 @@
+#ifndef LIBJH_ENUM_FLAG_HPP
+#define LIBJH_ENUM_FLAG_HPP
 #include <type_traits>
 
 #define IS_FLAG_ENUM(enum_name)                                                \
@@ -79,3 +81,5 @@ constexpr bool has(std::underlying_type_t<decltype(mask)> value) {
   return (value & mask) == underlying_value(mask);
 }
 } // namespace river::flags
+
+#endif

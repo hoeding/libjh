@@ -1,5 +1,5 @@
-#ifndef linuxrt_base_hpp
-#define linuxrt_base_hpp
+#ifndef libjh_base_hpp
+#define libjh_base_hpp
 #include <vector>
 #include <tuple>
 #include <string>

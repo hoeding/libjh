@@ -12,6 +12,7 @@ add_library( libjh
               environment.hpp
               phy.hpp
               file_operations.hpp
+              
 )
 set_target_properties(libjh
   PROPERTIES CXX_STANDARD 20
@@ -21,13 +22,19 @@ set_target_properties(libjh
   SOVERSION 1
   PUBLIC_HEADER debug.hpp
   PUBLIC_HEADER environment.hpp
+  PUBLIC_HEADER configuration.hpp
+  PUBLIC_HEADER enum_flag.hpp
+  PUBLIC_HEADER file_operations.hpp
+  PUBLIC_HEADER filesystem_macro.hpp
+  PUBLIC_HEADER getoptpp.hpp
+  PUBLIC_HEADER phy.hpp
 )
 include (GNUInstallDirs)
 include_directories (./)
 
 install(TARGETS libjh
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libjh/)
 configure_file(libjh.pc.in libjh.pc @ONLY)
 install ( FILES ${CMAKE_BINARY_DIR}/libjh.pc
           DESTINATION ${CMAKE_INSTALL_DATAROOTDIR})
