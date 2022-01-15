@@ -25,7 +25,7 @@ set_target_properties(libjh
 include (GNUInstallDirs)
 include_directories (./)
 
-install(TARGETS libpathsolver
+install(TARGETS libjh
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 configure_file(libjh.pc.in libjh.pc @ONLY)
