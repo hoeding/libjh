@@ -8,7 +8,7 @@
 namespace river::flags {
 template <typename T>
 concept unsigned_enum =
-    std::is_enum_v<T> && std::is_unsigned_v<std::underlying_type_t<T>>;
+    std::is_enum<T>::value && std::is_unsigned<std::underlying_type_t<T>>::value;
 
 namespace details {
   template <unsigned_enum T> constexpr bool is_flag() { return is_flag(T{}); }
