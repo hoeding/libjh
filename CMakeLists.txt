@@ -8,26 +8,28 @@ project(libjh
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
 add_library( libjh
-              debug.cpp
-              environment.hpp
-              phy.hpp
-              file_operations.hpp
+        debug.cpp
+        environment.hpp
+        phy.hpp
+        file_operations.hpp
               
 )
+set(HEADERS
+        debug.hpp 
+        environment.hpp
+        configuration.hpp
+        enum_flag.hpp
+        file_operations.hpp
+        filesystem_macro.hpp
+        getoptpp.hpp
+        phy.hpp)
 set_target_properties(libjh
-  PROPERTIES CXX_STANDARD 20
-  PREFIX ""
-  CXX_STANDARD_REQUIRED YES
-  VERSION ${PROJECT_VERSION}
-  SOVERSION 1
-  PUBLIC_HEADER debug.hpp
-  PUBLIC_HEADER environment.hpp
-  PUBLIC_HEADER configuration.hpp
-  PUBLIC_HEADER enum_flag.hpp
-  PUBLIC_HEADER file_operations.hpp
-  PUBLIC_HEADER filesystem_macro.hpp
-  PUBLIC_HEADER getoptpp.hpp
-  PUBLIC_HEADER phy.hpp
+        PROPERTIES CXX_STANDARD 20
+        PREFIX ""
+        CXX_STANDARD_REQUIRED YES
+        VERSION ${PROJECT_VERSION}
+        SOVERSION 1
+        PUBLIC_HEADER HEADERS
 )
 include (GNUInstallDirs)
 include_directories (./)
