@@ -22,7 +22,7 @@ set_target_properties(libjh PROPERTIES
         CXX_STANDARD_REQUIRED YES
         VERSION ${PROJECT_VERSION}
         SOVERSION 1
-        PUBLIC_HEADER "debug.hpp;environment.hpp;configuration.hpp;enum_flag.hpp;file_operations.hpp;filesystem_macro.hpp;getoptpp.hpp;phy.hpp"
+        PUBLIC_HEADER "base.hpp;debug.hpp;environment.hpp;configuration.hpp;enum_flag.hpp;file_operations.hpp;filesystem_macro.hpp;getoptpp.hpp;phy.hpp"
 )
 include (GNUInstallDirs)
 include_directories (./)

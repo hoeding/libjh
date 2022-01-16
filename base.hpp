@@ -5,7 +5,7 @@
 #include <string>
 #include <memory>
 #include <iostream>
-namespace linuxrt {
+namespace libjh {
 namespace glibc {
 namespace bits {
 namespace sockaddr_h {}
@@ -16,9 +16,9 @@ namespace in_h {}
 } // namespace netinet
 namespace ifaddrs_h {}
 } // namespace glibc
-} // namespace linuxrt
+} // namespace libjh
 
-namespace linuxrt::glibc::bits::sockaddr_h {
+namespace libjh::glibc::bits::sockaddr_h {
 //#include <bits/sockaddr.h>
 typedef unsigned short int sa_family_t;
 /*struct sockaddr {
@@ -26,7 +26,7 @@ typedef unsigned short int sa_family_t;
   char sa_data[14]; /* Address data.  */
 //};*/
 
-} // namespace linuxrt::glibc::bits::sockaddr_h
+} // namespace libjh::glibc::bits::sockaddr_h
 
 #include <netinet/in.h>
 
@@ -42,15 +42,15 @@ enum class ENUMS : uint8_t {
 socklen_t MAXHOST = 1025;
 } // namespace NI_
 
-// using namespace linuxrt::glibc::bits::sockaddr_h;
-// using namespace linuxrt::glibc::bits::socket_h;
+// using namespace libjh::glibc::bits::sockaddr_h;
+// using namespace libjh::glibc::bits::socket_h;
 
 
 #include <linux/if_link.h> //rtnl_link_stats
 
-namespace linuxrt::ifaddrs {
+namespace libjh::ifaddrs {
 namespace AF_ { // Address Family
-// using namespace linuxrt::glibc::bits::sockaddr_h;
+// using namespace libjh::glibc::bits::sockaddr_h;
 static const std::vector<std::tuple<sa_family_t, std::string>> ENOOM{
     {AF_INET, "IPV4"},
     {AF_INET6, "IPV6"},
@@ -162,5 +162,5 @@ int my_getnameinfo(const struct sockaddr *sa, socklen_t addrlen, char *host,
     addresses.push_back(fresh_address_object);
   };
 }
-} // namespace linuxrt::ifaddrs
+} // namespace libjh::ifaddrs
 #endif
