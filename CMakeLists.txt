@@ -14,8 +14,7 @@ add_library( libjh
         file_operations.hpp
               
 )
-set(HEADERS
-        )
+
 set_target_properties(libjh PROPERTIES
         CXX_STANDARD 20
         PREFIX ""
@@ -32,4 +31,4 @@ install(TARGETS libjh
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libjh/)
 configure_file(libjh.pc.in libjh.pc @ONLY)
 install ( FILES ${CMAKE_BINARY_DIR}/libjh.pc
-          DESTINATION ${CMAKE_INSTALL_DATAROOTDIR})
+          DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig/)
