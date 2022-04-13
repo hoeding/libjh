@@ -5,19 +5,17 @@ project(libjh
         DESCRIPTION "Utility library"
         LANGUAGES C CXX
 )
+option(test "Run tests" ON)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
-add_library( libjh
+add_library( jh
         debug.cpp
-        environment.hpp
         phy.hpp
-        file_operations.hpp
-              
 )
 
-set_target_properties(libjh PROPERTIES
+
+set_target_properties(jh PROPERTIES
         CXX_STANDARD 20
-        PREFIX ""
         CXX_STANDARD_REQUIRED YES
         VERSION ${PROJECT_VERSION}
         SOVERSION 1
@@ -26,7 +24,16 @@ set_target_properties(libjh PROPERTIES
 include (GNUInstallDirs)
 include_directories (./)
 
-install(TARGETS libjh
+add_executable ( getopt_cpp_test
+        ./tests/getopt.cpp )
+add_executable ( getopt_c_test
+        ./tests/getopt.c)
+add_test (getopt_cpp getopt_test)
+
+
+
+
+install(TARGETS jh
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libjh/)
 configure_file(libjh.pc.in libjh.pc @ONLY)
